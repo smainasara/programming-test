@@ -1,0 +1,110 @@
+
+
+package salihu;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+
+/**
+ *
+ * @author ACER
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+                int[] n = {2,4,5,10,8,9,7,7,2,4};
+        int[] rotated = rotate(n,2);
+        System.out.print("HELLO \n");
+        for(int i=0; i < rotated.length; i++)
+        System.out.print(rotated[i] + " ");
+        
+        System.out.print("\n\n\n\n");
+        
+        System.out.print(arrayCompacter(n));
+        
+        System.out.print("\n\n\n\n");
+        String sr1 = "bcad";
+        String sr2 = "aydzbc";
+        
+        characterChecker(sr1, sr2);
+        
+    }
+    
+    
+    
+    public static String arrayCompacter(int[] numArray){
+        Set<Integer> newSet = new HashSet<Integer>();
+        for(int num:numArray){
+            newSet.add(Integer.valueOf(num));
+        }
+        return newSet.toString();
+    }
+    
+    
+    
+    
+    public static void characterChecker(String str1, String str2){
+        HashMap<Character, Integer> m1 = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> m2 = new HashMap<Character, Integer>();
+        Set<Character> values = null;
+        Iterator it = null;
+        boolean flag = false;
+        
+        for(int i=0, j=0; i<str1.length() || j < str2.length(); i++, j++){
+            if(i<str1.length()){
+                m1.put(new Character(str1.charAt(i)), new Integer(i));
+            }
+            
+             if(j<str2.length()){
+                m2.put(new Character(str2.charAt(j)), new Integer(j));
+            }
+            values = new LinkedHashSet();
+            values = m1.keySet();
+            it = values.iterator();
+            while(it.hasNext()){
+                Character cm = (Character)it.next();
+                if(m1.get(cm) != null){
+                    
+                    //m2.get(cm
+                    
+                    System.out.print(cm);
+                }
+            }
+            
+        }
+        
+    }
+
+
+
+def lcm(array):
+    """
+    Returns the lease common multiple of the set of integers in array.
+    """
+    i, repo = 0, {}
+    while i < 10000:    # prevents endless loop?
+        i += 1
+        for n in array:
+            multiple = n * i
+            if not repo.has_key(multiple):
+                repo[multiple] = 1
+            else:
+                repo[multiple] += 1
+                if repo[multiple] == len(array):
+                    return multiple                
+    
+    
+
+
+
+
+
+
+
